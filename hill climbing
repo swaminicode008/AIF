@@ -1,0 +1,20 @@
+def f(x):
+    return -(x-5)**2+25
+def hill_climbing(start):
+    current = start
+    while True:
+        left = current - 1
+        right = current + 1 
+        if f(left) > f(current):
+            next_state = left
+        elif f(right) > f(current):
+            next_state = right
+        else:
+            break
+        current = next_state
+    return current, f(current)
+start = 0
+solution,value = hill_climbing(start)
+print("Starting point:",start)
+print("Best solution:",solution)
+print("Maximum value:",value)
