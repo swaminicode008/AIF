@@ -1,0 +1,28 @@
+from collections import deque
+
+graph = {
+    "Shivajinagar": ["Civil Court", "Deccan"],
+    "Civil Court": ["Pune Station"],
+    "Deccan": ["Nal Stop"],
+    "Pune Station": [],
+    "Nal Stop": []
+}
+
+visited = set()
+queue = deque()
+
+start = input("Enter starting station: ")
+
+queue.append(start)
+visited.add(start)
+
+print("\nBFS Traversal:")
+
+while queue:
+    current = queue.popleft()
+    print(current)
+
+    for station in graph[current]:
+        if station not in visited:
+            visited.add(station)
+            queue.append(station)
